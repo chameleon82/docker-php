@@ -8,5 +8,5 @@ RUN apk add --no-cache freetype libpng libjpeg-turbo freetype-dev libpng-dev lib
     NPROC=$(grep -c ^processor /proc/cpuinfo 2>/dev/null || 1) && \
     docker-php-ext-install -j${NPROC} gd && \
     apk del --no-cache freetype-dev libpng-dev libjpeg-turbo-dev && \
-    curl -s -f -L https://raw.githubusercontent.com/composer/getcomposer.org/master/web/installer | php -- --no-ansi --install-dir=/usr
-/bin --filename=composer --quiet
+    curl -s -f -L https://raw.githubusercontent.com/composer/getcomposer.org/master/web/installer | php -- --no-ansi --install-dir=/usr/bin --filename=composer --quiet
+ENV COMPOSER_ALLOW_SUPERUSER 1
